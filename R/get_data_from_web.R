@@ -1,3 +1,9 @@
+#' Lists the datasets to downloads
+#' @returns c("parish110217popest")
+#' 
+datasets.to.download_f<-function(){c("parish110217popest")}
+
+
 #' Downloads the file parish110217popest.zip from internet
 #' 
 #' @param directory a character string  indicating a file path (default: file.path(find.package("dataONS"),'data')) otherwise 
@@ -9,7 +15,7 @@
 #' 
 get_data_from_web<-function(directory=if(file.exists(try(file.path(find.package("dataONS"),'data')))){
   file.path(find.package("dataONS"),'data')}else{NULL},
-  datasets.to.download=dataONS::datasets.to.download_f()){
+  datasets.to.download=datasets.to.download_f()){
   L<-lapply(datasets.to.download,function(dataset.to.download){
     if(dataset.to.download=="parish110217popest"){
       parish110217popest<-get_parish110217popest.zip()
@@ -19,10 +25,7 @@ get_data_from_web<-function(directory=if(file.exists(try(file.path(find.package(
   names(L)<-datasets.to.download
   L}
   
-#' Lists the datasets to downloads
-#' @returns c("parish110217popest")
-#' 
-datasets.to.download_f<-function(){c("parish110217popest")}
+
 
 #' Download, unzip and read the file parish110217popest.zip from internet
 #' 
