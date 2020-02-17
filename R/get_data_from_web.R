@@ -27,6 +27,9 @@ datasets.to.download_f<-function(){c("parish110217popest")}
 #' Download, unzip and read the file parish110217popest.zip from internet
 #' 
 #' @details download, unzip and read the file "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009305populationestimatesforparishesinenglandandwalesmid2002tomid2017/parish110217popest.zip"
+#' @example 
+#' parish110217popest=get_parish110217popest.zip()
+#' head(parish110217popest[parish110217popest$year=="mid_2002",c("PAR11NM","Population")])
 
 get_parish110217popest.zip<-function(){
   webfile="https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009305populationestimatesforparishesinenglandandwalesmid2002tomid2017/parish110217popest.zip"
