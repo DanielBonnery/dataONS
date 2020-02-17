@@ -1,0 +1,13 @@
+Package: dataONS
+Type: Package
+Title: X
+Version: 1.0
+Date: 2020-02-17
+Author: D. Bonnery
+Maintainer: D. Bonnery  <dbonnery@umd.edu>
+Description: Data
+Remotes: hrbrmstr/cfhttr
+Depends: downloader
+License: GPL (>= 2)
+LazyLoad: yes
+LazyData: true
