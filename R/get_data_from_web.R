@@ -1,8 +1,8 @@
 #' Lists the datasets to downloads
 #' @returns c("parish110217popest")
 #' 
-datasets.to.download_f<-function(){c("data/parish110217popest",
-                                     "data/Output_Area_to_Parish_to_Local_Authority_District_December_2011_Lookup_in_England_and_Wales",
+datasets.to.download_f<-function(){c("data/parish110217popest.rda",
+                                     "data/Output_Area_to_Parish_to_Local_Authority_District_December_2011_Lookup_in_England_and_Wales.rda",
                                      "inst/extdata/Parishes_December_2011_Boundaries_EW_BFC.zip")}
 
 
