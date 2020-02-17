@@ -16,7 +16,7 @@ datasets.to.download_f<-function(){c("parish110217popest")}
 get_data_from_web<-function(directory=file.path(find.package("dataONS"),'data'),
   datasets.to.download=datasets.to.download_f()){
   if(directory==file.path(find.package("dataONS"),'data')){
-    if(!file.exists(directory)){file.create(directory)}}
+    if(!file.exists(directory)){dir.create(directory)}}
   if(!is.null(directory)){
     datasets.to.download<-datasets.to.download[!is.element(paste0(datasets.to.download,".rda"),list.files(directory))]
   }
