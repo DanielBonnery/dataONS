@@ -1,7 +1,7 @@
 # Data: Annual Survey of Public Employment & Payroll
 
 `dataONS` is an R package that contains data from the Annual Survey of Public Employment & Payroll.
-The data was pulled from the [Census website](http://www.census.gov/govs/apes/).
+The data was pulled from the [ONS website](https://www.ons.gov.uk).
 
 
 
@@ -30,5 +30,5 @@ To see an example of data use, execute:
 
 
 ```r
-demo(map,package = "dataONS")
+demo(Popbyparish,package = "dataONS")
 ```
