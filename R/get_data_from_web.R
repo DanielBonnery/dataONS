@@ -13,9 +13,10 @@ datasets.to.download_f<-function(){c("parish110217popest")}
 #' @examples 
 #' attach(dataONS::get_data_from_web(directory=NULL))# takes some time to dowload data
 #' 
-get_data_from_web<-function(directory=if(file.exists(try(file.path(find.package("dataONS"),'data')))){
-  file.path(find.package("dataONS"),'data')}else{NULL},
+get_data_from_web<-function(directory=file.path(find.package("dataONS"),'data'),
   datasets.to.download=datasets.to.download_f()){
+  if(directory==file.path(find.package("dataONS"),'data')){
+    if(!file.exists(directory)){file.create(directory)}}
   L<-lapply(datasets.to.download,function(dataset.to.download){
     if(dataset.to.download=="parish110217popest"){
       parish110217popest<-get_parish110217popest.zip()
