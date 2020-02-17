@@ -4,16 +4,16 @@
     packageStartupMessage(
 "
 ###########################################################
-# This is the first time the package dataASPEP is loaded. #
+# This is the first time the package dataONS is loaded.   #
 # Or all the data has not been downloaded yet.            #
-# It is recommended to execute:                           #
+# The command :                                           #
 #                                                         #
 #       get_data_from_web()                               #
 #                                                         #
-# After which data is going to be downloaded from the     #
-# Census Website.                                         #
+# will be executed.                                       #
+# Data is going to be downloaded from the  ONS Website.   #
 # A connection to the web is needed.                      #
-# This takes a long time (less than 10 minutes though).   #
+# This takes time (less than 10 minutes though).          #
 ###########################################################
 ")
   }}
