@@ -3,7 +3,8 @@
 #' 
 datasets.to.download_f<-function(){c("data/parish110217popest.rda",
                                      "data/Output_Area_to_Parish_to_Local_Authority_District_December_2011_Lookup_in_England_and_Wales.rda",
-                                     "inst/extdata/Parishes_December_2011_Boundaries_EW_BFC.zip")}
+                                     "inst/extdata/Parishes_December_2011_Boundaries_EW_BFC.zip",
+                                     "data/mtcty150217population.rda")}
 
 
 #' Downloads the file parish110217popest.zip from internet
@@ -26,8 +27,15 @@ get_data_from_web<-function(directory=find.package("dataONS"),
     
     if(dataset.to.download=="data/parish110217popest.rda"){
       parish110217popest<-get_parish110217popest.zip()
-      if(!is.null(directory)){save(parish110217popest,file = file.path(directory,"parish110217popest.rda"))}
+      if(!is.null(directory)){save(parish110217popest,file = file.path(directory,dataset.to.download))}
       if(is.null(directory)){parish110217popest}else{NULL}}
+    
+    
+    if(dataset.to.download=="data/mtcty150217population.rda"){
+      mtcty150217population<-get_mtcty150217population.xls()
+      if(!is.null(directory)){save(mtcty150217population,file = file.path(directory,dataset.to.download))}
+      if(is.null(directory)){mtcty150217population}else{NULL}}
+    
     
     if(dataset.to.download=="data/Output_Area_to_Parish_to_Local_Authority_District_December_2011_Lookup_in_England_and_Wales.rda"){
       Output_Area_to_Parish_to_Local_Authority_District_December_2011_Lookup_in_England_and_Wales<-get_Output_Area_to_Parish_to_Local_Authority_District_December_2011_Lookup_in_England_and_Wales.csv()
@@ -43,9 +51,11 @@ L}
 
 
 
+
 #' Download, unzip and read the file parish110217popest.zip
 #' 
 #' @details download, unzip and read the file "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009305populationestimatesforparishesinenglandandwalesmid2002tomid2017/parish110217popest.zip"
+#' listed ghere: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009305populationestimatesforparishesinenglandandwalesmid2002tomid2017
 #' @example 
 #' parish110217popest=get_parish110217popest.zip()
 #' head(parish110217popest[parish110217popest$year=="mid_2002",c("PAR11NM","Population")])
@@ -58,6 +68,28 @@ get_parish110217popest.zip<-function(){
                             extra="--random-wait --retry-on-http-error=503")
   x=unzip(tmpf,exdir = tempdir())
   openxlsx::read.xlsx(x,sheet = 4,colNames=TRUE)}
+
+
+
+
+#' Download, unzip and read the file mtcty150217population.xls
+#' 
+#' @details download, unzip and read the file "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009292majortownandcitypopulationestimatesformid2002tomid2017/mtcty150217population.xls"
+#' listed ghere: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009292majortownandcitypopulationestimatesformid2002tomid2017
+#' @example 
+#' xx=get_mtcty150217population.xls()
+#' head(xx[xx$year=="mid_2002",c("PAR11NM","Population")])
+
+get_mtcty150217population.xls<-function(){
+  webfile="https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/009292majortownandcitypopulationestimatesformid2002tomid2017/mtcty150217population.xls"
+  tmpf  <-file.path(tempdir(),basename(webfile))
+  downloader::download(webfile,
+                            destfile = tmpf,
+                            extra="--random-wait --retry-on-http-error=503")
+  readxl::read_excel(tmpf,sheet = 4)}
+
+
+
 
 
 
