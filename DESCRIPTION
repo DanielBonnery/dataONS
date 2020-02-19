@@ -2,7 +2,7 @@ Package: dataONS
 Type: Package
 Title: X
 Version: 1.0
-Date: 2020-02-18
+Date: 2020-02-19
 Author: D. Bonnery
 Maintainer: D. Bonnery  <dbonnery@umd.edu>
 Description: Data

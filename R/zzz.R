@@ -1,6 +1,6 @@
 .onLoad<- function(libname, pkgname) {
-  if(!all(is.element(paste0(datasets.to.download_f(),".rda"),
-                     list.files(file.path(find.package("dataONS"),"data"))))){
+  if(!all(is.element(datasets.to.download_f(),
+                     list.files(file.path(find.package("dataONS")),recursive= T)))){
     packageStartupMessage(
 "
 ###########################################################
